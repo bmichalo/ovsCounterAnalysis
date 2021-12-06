@@ -11,5 +11,4 @@ sed -i 's/tx pkts.*drop//' step2.txt
 sed -i 's/errs.*//' step2.txt
 
 mv step2.txt "${outfile}"
-vim "${outfile}"
 

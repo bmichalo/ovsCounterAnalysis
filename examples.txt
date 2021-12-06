@@ -1,0 +1,4 @@
+for f in 2544_PVP-IcxCtx5-pt002Pct-10VM-x16-1adapter-7pctStart_noBF_OVSCtrs_1_*; do ./first.sh $f;done
+vim 2544_PVP-IcxCtx5-pt002Pct-10VM-x16-1adapter-7pctStart_noBF_OVSCtrs_1_*CSV.tmp
+for f in 2544_PVP-IcxCtx5-pt002Pct-10VM-x16-1adapter-7pctStart_noBF_OVSCtrs_1_*CSV.tmp; do ./last.sh $f;done
+
