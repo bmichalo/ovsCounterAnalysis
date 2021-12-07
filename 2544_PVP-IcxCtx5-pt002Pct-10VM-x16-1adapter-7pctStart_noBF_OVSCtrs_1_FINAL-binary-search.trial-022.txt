@@ -1,0 +1,2038 @@
+****************************************************************
+* OVS report for 10 VM service chain
+****************************************************************
+vm_chain_size = 10
+start_rate = 7
+trial = 1
+trial_name = FINAL-binary-search.trial-022.txt
+
+DUT Configuration:
+------------------
+Bridge phy-br-0
+    Port dpdk-0
+    Port vm0-vhost-user-0-n1
+Bridge phy-br-1
+    Port vm13-vhost-user-1-n1
+    Port dpdk-1
+Bridge phy-br-2
+    Port vm0-vhost-user-1-n1
+    Port vm1-vhost-user-0-n1
+Bridge phy-br-3
+    Port vm1-vhost-user-1-n1
+    Port vm2-vhost-user-0-n1
+Bridge phy-br-4
+    Port vm2-vhost-user-1-n1
+    Port vm3-vhost-user-0-n1
+Bridge phy-br-5
+    Port vm3-vhost-user-1-n1
+    Port vm4-vhost-user-0-n1
+Bridge phy-br-6
+    Port vm4-vhost-user-1-n1
+    Port vm5-vhost-user-0-n1
+Bridge phy-br-7
+    Port vm5-vhost-user-1-n1
+    Port vm6-vhost-user-0-n1
+Bridge phy-br-8
+    Port vm6-vhost-user-1-n1
+    Port vm7-vhost-user-0-n1
+Bridge phy-br-9
+    Port vm7-vhost-user-1-n1
+    Port vm8-vhost-user-0-n1
+Bridge phy-br-10
+    Port vm8-vhost-user-1-n1
+    Port vm9-vhost-user-0-n1
+Bridge phy-br-11
+    Port vm9-vhost-user-1-n1
+    Port vm10-vhost-user-0-n1
+Bridge phy-br-12
+    Port vm10-vhost-user-1-n1
+    Port vm11-vhost-user-0-n1
+Bridge phy-br-13
+    Port vm11-vhost-user-1-n1
+    Port vm12-vhost-user-0-n1
+Bridge phy-br-14
+    Port vm12-vhost-user-1-n1
+    Port vm13-vhost-user-0-n1
+
+
+
+=====================================================================
+ovs-ofctl dump-ports <bridge>
+=====================================================================
+
+ovs-ofctl dump-ports phy-br-0
+dpdk-0: 
+ofport              : 1
+vm0-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1500374663, bytes=96024038512, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1490848120, bytes=89450947414, drop=0, errs=0, coll=?
+  port  2: rx pkts=1490848120, bytes=89450947414, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1500305545, bytes=90018392780, drop=69118, errs=?, coll=?
+
+ovs-ofctl dump-ports phy-br-1
+vm13-vhost-user-1-n1: 
+ofport              : 2
+dpdk-1: 
+ofport              : 1
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1324, errs=0, coll=0
+  port  1: rx pkts=1500374663, bytes=96024038512, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1492101970, bytes=89526177854, drop=0, errs=0, coll=?
+  port  2: rx pkts=1492101970, bytes=89526177854, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1500305263, bytes=90018373582, drop=69400, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-2
+vm0-vhost-user-1-n1: 
+ofport              : 1
+vm1-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1498884033, bytes=89933102060, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1490848120, bytes=89450947414, drop=57256, errs=?, coll=?
+  port  2: rx pkts=1490905376, bytes=89454382774, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1498836455, bytes=89930247380, drop=47578, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-3
+vm1-vhost-user-1-n1: 
+ofport              : 1
+vm2-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1497388281, bytes=89843356940, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1491422742, bytes=89485424734, drop=64749, errs=?, coll=?
+  port  2: rx pkts=1491487491, bytes=89489309674, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1497368182, bytes=89842151000, drop=20099, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-4
+vm2-vhost-user-1-n1: 
+ofport              : 1
+vm3-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1495746237, bytes=89744834300, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1491487491, bytes=89489309674, drop=28590, errs=?, coll=?
+  port  2: rx pkts=1491516081, bytes=89491025074, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1495692905, bytes=89741634380, drop=53332, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-5
+vm3-vhost-user-1-n1: 
+ofport              : 1
+vm4-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1495489915, bytes=89729454980, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1492267254, bytes=89536095454, drop=63525, errs=?, coll=?
+  port  2: rx pkts=1492330779, bytes=89539906954, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1495442843, bytes=89726630660, drop=47072, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-6
+vm4-vhost-user-1-n1: 
+ofport              : 1
+vm5-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1494809072, bytes=89688604400, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1492330779, bytes=89539906954, drop=62025, errs=?, coll=?
+  port  2: rx pkts=1492392804, bytes=89543628454, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494734432, bytes=89684126000, drop=74640, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-7
+vm5-vhost-user-1-n1: 
+ofport              : 1
+vm6-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1494709948, bytes=89682656960, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1493031047, bytes=89581923034, drop=44292, errs=?, coll=?
+  port  2: rx pkts=1493075339, bytes=89584580554, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494632607, bytes=89678016500, drop=77341, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-8
+vm6-vhost-user-1-n1: 
+ofport              : 1
+vm7-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1494566789, bytes=89674067420, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1493075339, bytes=89584580554, drop=72961, errs=?, coll=?
+  port  2: rx pkts=1493148300, bytes=89588958214, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494518084, bytes=89671145120, drop=48705, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-9
+vm7-vhost-user-1-n1: 
+ofport              : 1
+vm8-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1494514252, bytes=89670915200, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1493299166, bytes=89598010174, drop=20140, errs=?, coll=?
+  port  2: rx pkts=1493319306, bytes=89599218574, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494469912, bytes=89668254800, drop=44340, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-10
+vm8-vhost-user-1-n1: 
+ofport              : 1
+vm9-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1494208065, bytes=89652543980, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1493324931, bytes=89599556074, drop=70099, errs=?, coll=?
+  port  2: rx pkts=1493395030, bytes=89603762014, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494168734, bytes=89650184120, drop=39331, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-11
+vm9-vhost-user-1-n1: 
+ofport              : 1
+vm10-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1327, errs=0, coll=0
+  port  1: rx pkts=1494168734, bytes=89650184120, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494202255, bytes=89652195514, drop=27721, errs=?, coll=?
+  port  2: rx pkts=1494229976, bytes=89653858774, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494138640, bytes=89648378480, drop=30094, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-12
+vm10-vhost-user-1-n1: 
+ofport              : 1
+vm11-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1370, errs=0, coll=0
+  port  1: rx pkts=1493774957, bytes=89626561765, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1494338583, bytes=89660372941, drop=31669, errs=?, coll=?
+  port  2: rx pkts=1494370252, bytes=89662275334, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1493737891, bytes=89624334171, drop=37066, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-13
+vm11-vhost-user-1-n1: 
+ofport              : 1
+vm12-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1343, errs=0, coll=0
+  port  1: rx pkts=1493737898, bytes=89624336018, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1497875637, bytes=89872595898, drop=51189, errs=?, coll=?
+  port  2: rx pkts=1497926826, bytes=89875669493, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1493689878, bytes=89621452262, drop=48020, errs=?, coll=?
+
+
+ovs-ofctl dump-ports phy-br-14
+vm12-vhost-user-1-n1: 
+ofport              : 1
+vm13-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1339, errs=0, coll=0
+  port  1: rx pkts=1492163517, bytes=89529872642, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1500271414, bytes=90016342333, drop=30229, errs=?, coll=?
+  port  2: rx pkts=1500301643, bytes=90018158232, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1492101958, bytes=89526175427, drop=61559, errs=?, coll=?
+
+
+
+
+
+=====================================================================
+ovs-vsctl get interface <iface> statistics
+=====================================================================
+
+Bridge phy-br-0
+    Port dpdk-0
+    Port vm0-vhost-user-0-n1
+
+ovs-vsctl get interface dpdk-0 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=0, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, rx_bytes=96017495088, rx_dropped=0, rx_errors=0, rx_mbuf_allocation_errors=0, rx_missed_errors=0, rx_packets=1500272422, tx_bytes=89444746414, tx_dropped=0, tx_errors=0, tx_packets=1490744770}
+
+ovs-vsctl get interface vm0-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=69118, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=6, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1490743607, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89444705014, rx_dropped=0, rx_errors=0, rx_packets=1490744080, tx_bytes=90012226160, tx_dropped=69118, tx_packets=1500202768}
+
+
+Bridge phy-br-1
+    Port vm13-vhost-user-1-n1
+    Port dpdk-1
+
+ovs-vsctl get interface vm13-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=69395, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=17, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1492000655, rx_256_to_511_packets=198, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89520127214, rx_dropped=0, rx_errors=0, rx_packets=1492001126, tx_bytes=90012270202, tx_dropped=69400, tx_packets=1500203540}
+
+ovs-vsctl get interface dpdk-1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=0, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, rx_bytes=96017560496, rx_dropped=0, rx_errors=0, rx_mbuf_allocation_errors=0, rx_missed_errors=0, rx_packets=1500273444, tx_bytes=89520160394, tx_dropped=0, tx_errors=0, tx_packets=1492001679}
+
+
+Bridge phy-br-2
+    Port vm0-vhost-user-1-n1 
+    Port vm1-vhost-user-0-n1
+
+ovs-vsctl get interface vm0-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=57256, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1498780648, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89926927760, rx_dropped=0, rx_errors=0, rx_packets=1498781128, tx_bytes=89444704654, tx_dropped=57256, tx_packets=1490744074}
+
+ovs-vsctl get interface vm1-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=47578, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=12, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1490800861, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89448140254, rx_dropped=0, rx_errors=0, rx_packets=1490801334, tx_bytes=89924073080, tx_dropped=47578, tx_packets=1498733550}
+
+
+Bridge phy-br-3
+    Port vm1-vhost-user-1-n1 
+    Port vm2-vhost-user-0-n1
+
+ovs-vsctl get interface vm1-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=64749, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1497287016, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89837309840, rx_dropped=0, rx_errors=0, rx_packets=1497287496, tx_bytes=89479302394, tx_dropped=64749, tx_packets=1491320703}
+
+ovs-vsctl get interface vm2-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=20099, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=8, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1491384979, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89483187334, rx_dropped=0, rx_errors=0, rx_packets=1491385452, tx_bytes=89836103900, tx_dropped=20099, tx_packets=1497267397}
+
+
+Bridge phy-br-4
+    Port vm2-vhost-user-1-n1 
+    Port vm3-vhost-user-0-n1
+
+ovs-vsctl get interface vm2-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=28590, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=8, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1495644972, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89738787200, rx_dropped=0, rx_errors=0, rx_packets=1495645452, tx_bytes=89483192854, tx_dropped=28590, tx_packets=1491385544}
+
+ovs-vsctl get interface vm3-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=53332, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1491413597, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89484904414, rx_dropped=0, rx_errors=0, rx_packets=1491414070, tx_bytes=89735587280, tx_dropped=53332, tx_packets=1495592120}
+
+
+Bridge phy-br-5
+    Port vm3-vhost-user-1-n1 
+    Port vm4-vhost-user-0-n1
+
+ovs-vsctl get interface vm3-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=63525, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1495386582, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89723283800, rx_dropped=0, rx_errors=0, rx_packets=1495387062, tx_bytes=89529853054, tx_dropped=63525, tx_packets=1492163214}
+
+ovs-vsctl get interface vm4-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=47072, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=15, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1492226266, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89533664554, rx_dropped=0, rx_errors=0, rx_packets=1492226739, tx_bytes=89720456360, tx_dropped=47072, tx_packets=1495339938}
+
+
+Bridge phy-br-6
+    Port vm4-vhost-user-1-n1 
+    Port vm5-vhost-user-0-n1
+
+ovs-vsctl get interface vm4-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=62025, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=18, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494709801, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89682676940, rx_dropped=0, rx_errors=0, rx_packets=1494710281, tx_bytes=89533921894, tx_dropped=62025, tx_packets=1492231028}
+
+ovs-vsctl get interface vm5-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=74640, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=7, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1492292580, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89537643394, rx_dropped=0, rx_errors=0, rx_packets=1492293053, tx_bytes=89678198540, tx_dropped=74640, tx_packets=1494635641}
+
+
+Bridge phy-br-7
+    Port vm5-vhost-user-1-n1 
+    Port vm6-vhost-user-0-n1
+
+ovs-vsctl get interface vm5-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=44292, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494606563, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89676482660, rx_dropped=0, rx_errors=0, rx_packets=1494607043, tx_bytes=89575680634, tx_dropped=44292, tx_packets=1492927007}
+
+ovs-vsctl get interface vm6-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=77341, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=11, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1492970826, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89578338154, rx_dropped=0, rx_errors=0, rx_packets=1492971299, tx_bytes=89671842200, tx_dropped=77341, tx_packets=1494529702}
+
+
+Bridge phy-br-8
+    Port vm6-vhost-user-1-n1 
+    Port vm7-vhost-user-0-n1
+
+ovs-vsctl get interface vm6-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=72961, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494463404, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89667893120, rx_dropped=0, rx_errors=0, rx_packets=1494463884, tx_bytes=89578338154, tx_dropped=72961, tx_packets=1492971299}
+
+ovs-vsctl get interface vm7-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=48705, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=7, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1493043787, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89582715814, rx_dropped=0, rx_errors=0, rx_packets=1493044260, tx_bytes=89664970820, tx_dropped=48705, tx_packets=1494415179}
+
+
+Bridge phy-br-9
+    Port vm7-vhost-user-1-n1 
+    Port vm8-vhost-user-0-n1
+
+ovs-vsctl get interface vm7-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=20140, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=5, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494410809, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89664737420, rx_dropped=0, rx_errors=0, rx_packets=1494411289, tx_bytes=89591767774, tx_dropped=20140, tx_packets=1493195126}
+
+ovs-vsctl get interface vm8-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=44340, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=10, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1493214793, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89592976174, rx_dropped=0, rx_errors=0, rx_packets=1493215266, tx_bytes=89662072820, tx_dropped=44340, tx_packets=1494366879}
+
+
+Bridge phy-br-10
+    Port vm8-vhost-user-1-n1 
+    Port vm9-vhost-user-0-n1
+
+ovs-vsctl get interface vm8-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=70099, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=12, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494106754, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89646494120, rx_dropped=0, rx_errors=0, rx_packets=1494107234, tx_bytes=89593448854, tx_dropped=70099, tx_packets=1493223144}
+
+ovs-vsctl get interface vm9-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=39331, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=11, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1493292775, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89597655094, rx_dropped=0, rx_errors=0, rx_packets=1493293248, tx_bytes=89644134260, tx_dropped=39331, tx_packets=1494067903}
+
+
+Bridge phy-br-11
+    Port vm9-vhost-user-1-n1 
+    Port vm10-vhost-user-0-n1
+
+ovs-vsctl get interface vm9-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=27721, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=9, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494065338, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=280, rx_bytes=89644009160, rx_dropped=0, rx_errors=0, rx_packets=1494065818, tx_bytes=89645961334, tx_dropped=27721, tx_packets=1494098352}
+
+ovs-vsctl get interface vm10-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=30094, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=8, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494125543, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89647621174, rx_dropped=0, rx_errors=0, rx_packets=1494126016, tx_bytes=89642202260, tx_dropped=30094, tx_packets=1494035703}
+
+
+Bridge phy-br-12
+    Port vm10-vhost-user-1-n1 
+    Port vm11-vhost-user-0-n1
+
+ovs-vsctl get interface vm10-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=31657, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=4, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1493675652, rx_256_to_511_packets=213, rx_512_to_1023_packets=0, rx_65_to_127_packets=301, rx_bytes=89620634305, rx_dropped=0, rx_errors=0, rx_packets=1493676166, tx_bytes=89654391361, tx_dropped=31669, tx_packets=1494238890}
+
+ovs-vsctl get interface vm11-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=37049, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=8, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1494270078, rx_256_to_511_packets=200, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89656293274, rx_dropped=0, rx_errors=0, rx_packets=1494270551, tx_bytes=89618406711, tx_dropped=37066, tx_packets=1493639100}
+
+
+Bridge phy-br-13
+    Port vm11-vhost-user-1-n1 
+    Port vm12-vhost-user-0-n1
+
+ovs-vsctl get interface vm11-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=51180, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=6, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1493634325, rx_256_to_511_packets=206, rx_512_to_1023_packets=0, rx_65_to_127_packets=287, rx_bytes=89618151218, rx_dropped=0, rx_errors=0, rx_packets=1493634818, tx_bytes=89866353498, tx_dropped=51189, tx_packets=1497771597}
+
+ovs-vsctl get interface vm12-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=48005, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=5, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1497822314, rx_256_to_511_packets=199, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=89869427093, rx_dropped=0, rx_errors=0, rx_packets=1497822786, tx_bytes=89615267462, tx_dropped=48020, tx_packets=1493586798}
+
+
+Bridge phy-br-14
+    Port vm12-vhost-user-1-n1 
+    Port vm13-vhost-user-0-n1
+
+ovs-vsctl get interface vm12-vhost-user-1-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=30224, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=4, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1492064235, rx_256_to_511_packets=204, rx_512_to_1023_packets=0, rx_65_to_127_packets=287, rx_bytes=89523945182, rx_dropped=0, rx_errors=0, rx_packets=1492064726, tx_bytes=90010359193, tx_dropped=30229, tx_packets=1500171695}
+
+ovs-vsctl get interface vm13-vhost-user-0-n1 statistics
+{ovs_rx_qos_drops=0, ovs_tx_failure_drops=61542, ovs_tx_invalid_hwol_drops=0, ovs_tx_mtu_exceeded_drops=0, ovs_tx_qos_drops=0, ovs_tx_retries=14, rx_1024_to_1522_packets=0, rx_128_to_255_packets=0, rx_1523_to_max_packets=0, rx_1_to_64_packets=1500201453, rx_256_to_511_packets=198, rx_512_to_1023_packets=0, rx_65_to_127_packets=273, rx_bytes=90012175092, rx_dropped=0, rx_errors=0, rx_packets=1500201924, tx_bytes=89520246467, tx_dropped=61559, tx_packets=1492003142}
+
+
+=====================================================================
+ovs-appctl dpif-netdev/pmd-perf-show
+=====================================================================
+
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 3:
+
+  Iterations:            26200750  (0.25 us/it)
+  - Used TSC cycles:  12971288792  ( 99.8 % of total cycles)
+  - idle iterations:     25973052  ( 80.1 % of used cycles)
+  - busy iterations:       227698  ( 19.9 % of used cycles)
+  Rx packets:             3738734  (575 Kpps, 690 cycles/pkt)
+  Datapath passes:        3738734  (1.00 passes/pkt)
+  - EMC hits:             3738734  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738734  (575 Kpps)
+  Tx batches:              227698  (16.42 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 5:
+
+  Iterations:            29696032  (0.22 us/it)
+  - Used TSC cycles:  12971329866  ( 99.8 % of total cycles)
+  - idle iterations:     29358503  ( 78.8 % of used cycles)
+  - busy iterations:       337529  ( 21.2 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 736 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              337529  (11.08 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 11:
+
+  Iterations:            28951956  (0.22 us/it)
+  - Used TSC cycles:  12971354532  ( 99.8 % of total cycles)
+  - idle iterations:     28661769  ( 73.4 % of used cycles)
+  - busy iterations:       290187  ( 26.6 % of used cycles)
+  Rx packets:             3738734  (575 Kpps, 922 cycles/pkt)
+  Datapath passes:        3738734  (1.00 passes/pkt)
+  - EMC hits:             3738734  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738734  (575 Kpps)
+  Tx batches:              290187  (12.88 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 15:
+
+  Iterations:            29089983  (0.22 us/it)
+  - Used TSC cycles:  12971368626  ( 99.8 % of total cycles)
+  - idle iterations:     28808422  ( 73.8 % of used cycles)
+  - busy iterations:       281561  ( 26.2 % of used cycles)
+  Rx packets:             3738734  (575 Kpps, 909 cycles/pkt)
+  Datapath passes:        3738734  (1.00 passes/pkt)
+  - EMC hits:             3738734  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738734  (575 Kpps)
+  Tx batches:              281561  (13.28 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 19:
+
+  Iterations:            29104787  (0.22 us/it)
+  - Used TSC cycles:  12971387464  ( 99.8 % of total cycles)
+  - idle iterations:     28840316  ( 73.8 % of used cycles)
+  - busy iterations:       264471  ( 26.2 % of used cycles)
+  Rx packets:             3738734  (575 Kpps, 908 cycles/pkt)
+  Datapath passes:        3738734  (1.00 passes/pkt)
+  - EMC hits:             3738734  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738734  (575 Kpps)
+  Tx batches:              264472  (14.14 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 23:
+
+  Iterations:            29286138  (0.22 us/it)
+  - Used TSC cycles:  12971390888  ( 99.8 % of total cycles)
+  - idle iterations:     29038166  ( 74.5 % of used cycles)
+  - busy iterations:       247972  ( 25.5 % of used cycles)
+  Rx packets:             3738821  (575 Kpps, 886 cycles/pkt)
+  Datapath passes:        3738821  (1.00 passes/pkt)
+  - EMC hits:             3738821  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738821  (575 Kpps)
+  Tx batches:              247973  (15.08 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 27:
+
+  Iterations:            28983147  (0.22 us/it)
+  - Used TSC cycles:  12971412304  ( 99.8 % of total cycles)
+  - idle iterations:     28725014  ( 73.9 % of used cycles)
+  - busy iterations:       258133  ( 26.1 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 905 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              258133  (14.48 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 31:
+
+  Iterations:            29073780  (0.22 us/it)
+  - Used TSC cycles:  12971432984  ( 99.8 % of total cycles)
+  - idle iterations:     28803683  ( 74.2 % of used cycles)
+  - busy iterations:       270097  ( 25.8 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 897 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              270097  (13.84 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 35:
+
+  Iterations:            29011249  (0.22 us/it)
+  - Used TSC cycles:  12971445178  ( 99.8 % of total cycles)
+  - idle iterations:     28726379  ( 73.8 % of used cycles)
+  - busy iterations:       284870  ( 26.2 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 909 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              284870  (13.12 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 39:
+
+  Iterations:            28854792  (0.22 us/it)
+  - Used TSC cycles:  12971455330  ( 99.8 % of total cycles)
+  - idle iterations:     28552602  ( 73.5 % of used cycles)
+  - busy iterations:       302190  ( 26.5 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 921 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              302190  (12.37 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 43:
+
+  Iterations:            28748093  (0.23 us/it)
+  - Used TSC cycles:  12971467634  ( 99.8 % of total cycles)
+  - idle iterations:     28439265  ( 73.4 % of used cycles)
+  - busy iterations:       308828  ( 26.6 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 924 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              308828  (12.11 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 47:
+
+  Iterations:            28904441  (0.22 us/it)
+  - Used TSC cycles:  12971477702  ( 99.8 % of total cycles)
+  - idle iterations:     28606829  ( 73.7 % of used cycles)
+  - busy iterations:       297612  ( 26.3 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 912 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              297612  (12.56 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 51:
+
+  Iterations:            29092219  (0.22 us/it)
+  - Used TSC cycles:  12971487676  ( 99.8 % of total cycles)
+  - idle iterations:     28814806  ( 73.8 % of used cycles)
+  - busy iterations:       277413  ( 26.2 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 909 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              277413  (13.48 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 55:
+
+  Iterations:            28892660  (0.22 us/it)
+  - Used TSC cycles:  12971499072  ( 99.8 % of total cycles)
+  - idle iterations:     28631443  ( 73.8 % of used cycles)
+  - busy iterations:       261217  ( 26.2 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 908 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              261217  (14.31 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 59:
+
+  Iterations:            28981021  (0.22 us/it)
+  - Used TSC cycles:  12971518802  ( 99.8 % of total cycles)
+  - idle iterations:     28698319  ( 73.8 % of used cycles)
+  - busy iterations:       282702  ( 26.2 % of used cycles)
+  Rx packets:             3738843  (575 Kpps, 909 cycles/pkt)
+  Datapath passes:        3738843  (1.00 passes/pkt)
+  - EMC hits:             3738843  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3738843  (575 Kpps)
+  Tx batches:              282702  (13.23 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 67:
+
+  Iterations:            28491611  (0.23 us/it)
+  - Used TSC cycles:  12971529462  ( 99.8 % of total cycles)
+  - idle iterations:     27948640  ( 75.7 % of used cycles)
+  - busy iterations:       542971  ( 24.3 % of used cycles)
+  Rx packets:             3739844  (575 Kpps, 844 cycles/pkt)
+  Datapath passes:        3739844  (1.00 passes/pkt)
+  - EMC hits:             3739844  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739844  (575 Kpps)
+  Tx batches:              542971  (6.89 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 69:
+
+  Iterations:            25933316  (0.25 us/it)
+  - Used TSC cycles:  12971539642  ( 99.8 % of total cycles)
+  - idle iterations:     25689163  ( 79.4 % of used cycles)
+  - busy iterations:       244153  ( 20.6 % of used cycles)
+  Rx packets:             3739743  (575 Kpps, 713 cycles/pkt)
+  Datapath passes:        3739743  (1.00 passes/pkt)
+  - EMC hits:             3739743  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739743  (575 Kpps)
+  Tx batches:              244153  (15.32 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 75:
+
+  Iterations:            27713035  (0.23 us/it)
+  - Used TSC cycles:  12971551604  ( 99.8 % of total cycles)
+  - idle iterations:     27249643  ( 70.0 % of used cycles)
+  - busy iterations:       463392  ( 30.0 % of used cycles)
+  Rx packets:             3739844  (575 Kpps, 1040 cycles/pkt)
+  Datapath passes:        3739844  (1.00 passes/pkt)
+  - EMC hits:             3739844  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739844  (575 Kpps)
+  Tx batches:              463392  (8.07 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 79:
+
+  Iterations:            27866792  (0.23 us/it)
+  - Used TSC cycles:  12971565556  ( 99.8 % of total cycles)
+  - idle iterations:     27395896  ( 70.4 % of used cycles)
+  - busy iterations:       470896  ( 29.6 % of used cycles)
+  Rx packets:             3739844  (575 Kpps, 1028 cycles/pkt)
+  Datapath passes:        3739844  (1.00 passes/pkt)
+  - EMC hits:             3739844  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739844  (575 Kpps)
+  Tx batches:              470896  (7.94 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 83:
+
+  Iterations:            27930252  (0.23 us/it)
+  - Used TSC cycles:  12971564224  ( 99.8 % of total cycles)
+  - idle iterations:     27504393  ( 70.6 % of used cycles)
+  - busy iterations:       425859  ( 29.4 % of used cycles)
+  Rx packets:             3739830  (575 Kpps, 1020 cycles/pkt)
+  Datapath passes:        3739830  (1.00 passes/pkt)
+  - EMC hits:             3739830  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739830  (575 Kpps)
+  Tx batches:              425859  (8.78 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 87:
+
+  Iterations:            28102378  (0.23 us/it)
+  - Used TSC cycles:  12971581250  ( 99.8 % of total cycles)
+  - idle iterations:     27671913  ( 71.1 % of used cycles)
+  - busy iterations:       430465  ( 28.9 % of used cycles)
+  Rx packets:             3739812  (575 Kpps, 1003 cycles/pkt)
+  Datapath passes:        3739812  (1.00 passes/pkt)
+  - EMC hits:             3739812  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739812  (575 Kpps)
+  Tx batches:              430466  (8.69 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 91:
+
+  Iterations:            28195089  (0.23 us/it)
+  - Used TSC cycles:  12971594064  ( 99.8 % of total cycles)
+  - idle iterations:     27804338  ( 71.6 % of used cycles)
+  - busy iterations:       390751  ( 28.4 % of used cycles)
+  Rx packets:             3739793  (575 Kpps, 987 cycles/pkt)
+  Datapath passes:        3739793  (1.00 passes/pkt)
+  - EMC hits:             3739793  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739793  (575 Kpps)
+  Tx batches:              390751  (9.57 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 95:
+
+  Iterations:            28239752  (0.23 us/it)
+  - Used TSC cycles:  12971603678  ( 99.8 % of total cycles)
+  - idle iterations:     27862353  ( 71.9 % of used cycles)
+  - busy iterations:       377399  ( 28.1 % of used cycles)
+  Rx packets:             3739776  (575 Kpps, 976 cycles/pkt)
+  Datapath passes:        3739776  (1.00 passes/pkt)
+  - EMC hits:             3739776  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739776  (575 Kpps)
+  Tx batches:              377399  (9.91 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 99:
+
+  Iterations:            28370149  (0.23 us/it)
+  - Used TSC cycles:  12971622582  ( 99.8 % of total cycles)
+  - idle iterations:     27995981  ( 72.1 % of used cycles)
+  - busy iterations:       374168  ( 27.9 % of used cycles)
+  Rx packets:             3739776  (575 Kpps, 969 cycles/pkt)
+  Datapath passes:        3739776  (1.00 passes/pkt)
+  - EMC hits:             3739776  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739776  (575 Kpps)
+  Tx batches:              374168  (9.99 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 103:
+
+  Iterations:            28179185  (0.23 us/it)
+  - Used TSC cycles:  12971633758  ( 99.8 % of total cycles)
+  - idle iterations:     27798577  ( 71.6 % of used cycles)
+  - busy iterations:       380608  ( 28.4 % of used cycles)
+  Rx packets:             3739776  (575 Kpps, 986 cycles/pkt)
+  Datapath passes:        3739776  (1.00 passes/pkt)
+  - EMC hits:             3739776  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739776  (575 Kpps)
+  Tx batches:              380608  (9.83 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 107:
+
+  Iterations:            28254207  (0.23 us/it)
+  - Used TSC cycles:  12971645514  ( 99.8 % of total cycles)
+  - idle iterations:     27888260  ( 72.1 % of used cycles)
+  - busy iterations:       365947  ( 27.9 % of used cycles)
+  Rx packets:             3739776  (575 Kpps, 968 cycles/pkt)
+  Datapath passes:        3739776  (1.00 passes/pkt)
+  - EMC hits:             3739776  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739776  (575 Kpps)
+  Tx batches:              365947  (10.22 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 111:
+
+  Iterations:            28515096  (0.23 us/it)
+  - Used TSC cycles:  12971655240  ( 99.8 % of total cycles)
+  - idle iterations:     28185669  ( 72.7 % of used cycles)
+  - busy iterations:       329427  ( 27.3 % of used cycles)
+  Rx packets:             3739776  (575 Kpps, 948 cycles/pkt)
+  Datapath passes:        3739776  (1.00 passes/pkt)
+  - EMC hits:             3739776  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739776  (575 Kpps)
+  Tx batches:              329427  (11.35 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 115:
+
+  Iterations:            28779839  (0.23 us/it)
+  - Used TSC cycles:  12971664230  ( 99.8 % of total cycles)
+  - idle iterations:     28480651  ( 72.9 % of used cycles)
+  - busy iterations:       299188  ( 27.1 % of used cycles)
+  Rx packets:             3739776  (575 Kpps, 939 cycles/pkt)
+  Datapath passes:        3739776  (1.00 passes/pkt)
+  - EMC hits:             3739776  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739776  (575 Kpps)
+  Tx batches:              299188  (12.50 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 119:
+
+  Iterations:            28613963  (0.23 us/it)
+  - Used TSC cycles:  12971654368  ( 99.8 % of total cycles)
+  - idle iterations:     28322009  ( 73.0 % of used cycles)
+  - busy iterations:       291954  ( 27.0 % of used cycles)
+  Rx packets:             3739750  (575 Kpps, 936 cycles/pkt)
+  Datapath passes:        3739750  (1.00 passes/pkt)
+  - EMC hits:             3739750  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739750  (575 Kpps)
+  Tx batches:              291954  (12.81 pkts/batch)
+
+Time: 08:21:46.333
+Measurement duration: 6.501 s
+
+pmd thread numa_id 1 core_id 123:
+
+  Iterations:            28979885  (0.22 us/it)
+  - Used TSC cycles:  12971693326  ( 99.8 % of total cycles)
+  - idle iterations:     28725395  ( 73.8 % of used cycles)
+  - busy iterations:       254490  ( 26.2 % of used cycles)
+  Rx packets:             3739743  (575 Kpps, 909 cycles/pkt)
+  Datapath passes:        3739743  (1.00 passes/pkt)
+  - EMC hits:             3739743  (100.0 %)
+  - SMC hits:                   0  (  0.0 %)
+  - Megaflow hits:              0  (  0.0 %, 0.00 subtbl lookups/hit)
+  - Upcalls:                    0  (  0.0 %, 0.0 us/upcall)
+  - Lost upcalls:               0  (  0.0 %)
+  Tx packets:             3739743  (575 Kpps)
+  Tx batches:              254490  (14.70 pkts/batch)
+
+
+=====================================================================
+ovs-appctl dpif-netdev/pmd-perf-show | grep -e numa -e packets
+=====================================================================
+
+pmd thread numa_id 1 core_id 3:
+  Rx packets:             3738734  (575 Kpps, 690 cycles/pkt)
+  Tx packets:             3738734  (575 Kpps)
+pmd thread numa_id 1 core_id 5:
+  Rx packets:             3738843  (575 Kpps, 736 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 11:
+  Rx packets:             3738734  (575 Kpps, 922 cycles/pkt)
+  Tx packets:             3738734  (575 Kpps)
+pmd thread numa_id 1 core_id 15:
+  Rx packets:             3738734  (575 Kpps, 909 cycles/pkt)
+  Tx packets:             3738734  (575 Kpps)
+pmd thread numa_id 1 core_id 19:
+  Rx packets:             3738734  (575 Kpps, 908 cycles/pkt)
+  Tx packets:             3738734  (575 Kpps)
+pmd thread numa_id 1 core_id 23:
+  Rx packets:             3738821  (575 Kpps, 886 cycles/pkt)
+  Tx packets:             3738821  (575 Kpps)
+pmd thread numa_id 1 core_id 27:
+  Rx packets:             3738843  (575 Kpps, 905 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 31:
+  Rx packets:             3738843  (575 Kpps, 897 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 35:
+  Rx packets:             3738843  (575 Kpps, 909 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 39:
+  Rx packets:             3738843  (575 Kpps, 921 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 43:
+  Rx packets:             3738843  (575 Kpps, 924 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 47:
+  Rx packets:             3738843  (575 Kpps, 912 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 51:
+  Rx packets:             3738843  (575 Kpps, 909 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 55:
+  Rx packets:             3738843  (575 Kpps, 908 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 59:
+  Rx packets:             3738843  (575 Kpps, 909 cycles/pkt)
+  Tx packets:             3738843  (575 Kpps)
+pmd thread numa_id 1 core_id 67:
+  Rx packets:             3739844  (575 Kpps, 844 cycles/pkt)
+  Tx packets:             3739844  (575 Kpps)
+pmd thread numa_id 1 core_id 69:
+  Rx packets:             3739743  (575 Kpps, 713 cycles/pkt)
+  Tx packets:             3739743  (575 Kpps)
+pmd thread numa_id 1 core_id 75:
+  Rx packets:             3739844  (575 Kpps, 1040 cycles/pkt)
+  Tx packets:             3739844  (575 Kpps)
+pmd thread numa_id 1 core_id 79:
+  Rx packets:             3739844  (575 Kpps, 1028 cycles/pkt)
+  Tx packets:             3739844  (575 Kpps)
+pmd thread numa_id 1 core_id 83:
+  Rx packets:             3739830  (575 Kpps, 1020 cycles/pkt)
+  Tx packets:             3739830  (575 Kpps)
+pmd thread numa_id 1 core_id 87:
+  Rx packets:             3739812  (575 Kpps, 1003 cycles/pkt)
+  Tx packets:             3739812  (575 Kpps)
+pmd thread numa_id 1 core_id 91:
+  Rx packets:             3739793  (575 Kpps, 987 cycles/pkt)
+  Tx packets:             3739793  (575 Kpps)
+pmd thread numa_id 1 core_id 95:
+  Rx packets:             3739776  (575 Kpps, 976 cycles/pkt)
+  Tx packets:             3739776  (575 Kpps)
+pmd thread numa_id 1 core_id 99:
+  Rx packets:             3739776  (575 Kpps, 969 cycles/pkt)
+  Tx packets:             3739776  (575 Kpps)
+pmd thread numa_id 1 core_id 103:
+  Rx packets:             3739776  (575 Kpps, 986 cycles/pkt)
+  Tx packets:             3739776  (575 Kpps)
+pmd thread numa_id 1 core_id 107:
+  Rx packets:             3739776  (575 Kpps, 968 cycles/pkt)
+  Tx packets:             3739776  (575 Kpps)
+pmd thread numa_id 1 core_id 111:
+  Rx packets:             3739776  (575 Kpps, 948 cycles/pkt)
+  Tx packets:             3739776  (575 Kpps)
+pmd thread numa_id 1 core_id 115:
+  Rx packets:             3739776  (575 Kpps, 939 cycles/pkt)
+  Tx packets:             3739776  (575 Kpps)
+pmd thread numa_id 1 core_id 119:
+  Rx packets:             3739750  (575 Kpps, 936 cycles/pkt)
+  Tx packets:             3739750  (575 Kpps)
+pmd thread numa_id 1 core_id 123:
+  Rx packets:             3739743  (575 Kpps, 909 cycles/pkt)
+  Tx packets:             3739743  (575 Kpps)
+
+
+=====================================================================
+ovs-appctl dpctl/show --statistics
+=====================================================================
+
+netdev@ovs-netdev:
+  lookups: hit:112179046 missed:0 lost:0
+  flows: 3840
+  port 0: ovs-netdev (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:0 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 1: phy-br-0 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 2: dpdk-0 (dpdk: configured_rx_queues=1, configured_rxq_descriptors=2048, configured_tx_queues=31, configured_txq_descriptors=2048, lsc_interrupt_mode=false, mtu=1500, requested_rx_queues=1, requested_rxq_descriptors=2048, requested_tx_queues=31, requested_txq_descriptors=2048, rx_csum_offload=true, tx_tso_offload=false)
+    RX packets:1500374663 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1490848120 errors:0 dropped:0 aborted:? carrier:?
+    collisions:?
+    RX bytes:96024038512 (89.4 GiB)  TX bytes:89450947414 (83.3 GiB)
+  port 3: vm0-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1490848120 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1500305545 errors:? dropped:69118 aborted:? carrier:?
+    collisions:?
+    RX bytes:89450947414 (83.3 GiB)  TX bytes:90018392780 (83.8 GiB)
+  port 4: phy-br-1 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1324 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 5: dpdk-1 (dpdk: configured_rx_queues=1, configured_rxq_descriptors=2048, configured_tx_queues=31, configured_txq_descriptors=2048, lsc_interrupt_mode=false, mtu=1500, requested_rx_queues=1, requested_rxq_descriptors=2048, requested_tx_queues=31, requested_txq_descriptors=2048, rx_csum_offload=true, tx_tso_offload=false)
+    RX packets:1500374663 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1492101970 errors:0 dropped:0 aborted:? carrier:?
+    collisions:?
+    RX bytes:96024038512 (89.4 GiB)  TX bytes:89526177854 (83.4 GiB)
+  port 6: vm13-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1492101970 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1500305263 errors:? dropped:69400 aborted:? carrier:?
+    collisions:?
+    RX bytes:89526177854 (83.4 GiB)  TX bytes:90018373582 (83.8 GiB)
+  port 7: phy-br-2 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 8: vm0-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1498884033 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1490848120 errors:? dropped:57256 aborted:? carrier:?
+    collisions:?
+    RX bytes:89933102060 (83.8 GiB)  TX bytes:89450947414 (83.3 GiB)
+  port 9: vm1-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1490905376 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1498836455 errors:? dropped:47578 aborted:? carrier:?
+    collisions:?
+    RX bytes:89454382774 (83.3 GiB)  TX bytes:89930247380 (83.8 GiB)
+  port 10: phy-br-3 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 11: vm1-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1497388281 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1491422742 errors:? dropped:64749 aborted:? carrier:?
+    collisions:?
+    RX bytes:89843356940 (83.7 GiB)  TX bytes:89485424734 (83.3 GiB)
+  port 12: vm2-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1491487491 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1497368182 errors:? dropped:20099 aborted:? carrier:?
+    collisions:?
+    RX bytes:89489309674 (83.3 GiB)  TX bytes:89842151000 (83.7 GiB)
+  port 13: phy-br-4 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 14: vm2-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1495746237 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1491487491 errors:? dropped:28590 aborted:? carrier:?
+    collisions:?
+    RX bytes:89744834300 (83.6 GiB)  TX bytes:89489309674 (83.3 GiB)
+  port 15: vm3-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1491516081 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1495692905 errors:? dropped:53332 aborted:? carrier:?
+    collisions:?
+    RX bytes:89491025074 (83.3 GiB)  TX bytes:89741634380 (83.6 GiB)
+  port 16: phy-br-5 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 17: vm3-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1495489915 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1492267254 errors:? dropped:63525 aborted:? carrier:?
+    collisions:?
+    RX bytes:89729454980 (83.6 GiB)  TX bytes:89536095454 (83.4 GiB)
+  port 18: vm4-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1492330779 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1495442843 errors:? dropped:47072 aborted:? carrier:?
+    collisions:?
+    RX bytes:89539906954 (83.4 GiB)  TX bytes:89726630660 (83.6 GiB)
+  port 19: phy-br-6 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 20: vm4-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494809072 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1492330779 errors:? dropped:62025 aborted:? carrier:?
+    collisions:?
+    RX bytes:89688604400 (83.5 GiB)  TX bytes:89539906954 (83.4 GiB)
+  port 21: vm5-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1492392804 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494734432 errors:? dropped:74640 aborted:? carrier:?
+    collisions:?
+    RX bytes:89543628454 (83.4 GiB)  TX bytes:89684126000 (83.5 GiB)
+  port 22: phy-br-7 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 23: vm5-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494709948 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1493031047 errors:? dropped:44292 aborted:? carrier:?
+    collisions:?
+    RX bytes:89682656960 (83.5 GiB)  TX bytes:89581923034 (83.4 GiB)
+  port 24: vm6-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1493075339 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494632607 errors:? dropped:77341 aborted:? carrier:?
+    collisions:?
+    RX bytes:89584580554 (83.4 GiB)  TX bytes:89678016500 (83.5 GiB)
+  port 25: phy-br-8 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 26: vm6-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494566789 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1493075339 errors:? dropped:72961 aborted:? carrier:?
+    collisions:?
+    RX bytes:89674067420 (83.5 GiB)  TX bytes:89584580554 (83.4 GiB)
+  port 27: vm7-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1493148300 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494518084 errors:? dropped:48705 aborted:? carrier:?
+    collisions:?
+    RX bytes:89588958214 (83.4 GiB)  TX bytes:89671145120 (83.5 GiB)
+  port 28: phy-br-9 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 29: vm7-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494514252 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1493299166 errors:? dropped:20140 aborted:? carrier:?
+    collisions:?
+    RX bytes:89670915200 (83.5 GiB)  TX bytes:89598010174 (83.4 GiB)
+  port 30: vm8-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1493319306 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494469912 errors:? dropped:44340 aborted:? carrier:?
+    collisions:?
+    RX bytes:89599218574 (83.4 GiB)  TX bytes:89668254800 (83.5 GiB)
+  port 31: phy-br-10 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 32: vm8-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494208065 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1493324931 errors:? dropped:70099 aborted:? carrier:?
+    collisions:?
+    RX bytes:89652543980 (83.5 GiB)  TX bytes:89599556074 (83.4 GiB)
+  port 33: vm9-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1493395030 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494168734 errors:? dropped:39331 aborted:? carrier:?
+    collisions:?
+    RX bytes:89603762014 (83.5 GiB)  TX bytes:89650184120 (83.5 GiB)
+  port 34: phy-br-11 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1327 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 35: vm9-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494168734 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494202255 errors:? dropped:27721 aborted:? carrier:?
+    collisions:?
+    RX bytes:89650184120 (83.5 GiB)  TX bytes:89652195514 (83.5 GiB)
+  port 36: vm10-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494229976 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494138640 errors:? dropped:30094 aborted:? carrier:?
+    collisions:?
+    RX bytes:89653858774 (83.5 GiB)  TX bytes:89648378480 (83.5 GiB)
+  port 37: phy-br-12 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1370 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 38: vm10-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1493774957 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1494338583 errors:? dropped:31669 aborted:? carrier:?
+    collisions:?
+    RX bytes:89626561765 (83.5 GiB)  TX bytes:89660372941 (83.5 GiB)
+  port 39: vm11-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1494370252 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1493737891 errors:? dropped:37066 aborted:? carrier:?
+    collisions:?
+    RX bytes:89662275334 (83.5 GiB)  TX bytes:89624334171 (83.5 GiB)
+  port 40: phy-br-13 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1343 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 41: vm11-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1493737898 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1497875637 errors:? dropped:51189 aborted:? carrier:?
+    collisions:?
+    RX bytes:89624336018 (83.5 GiB)  TX bytes:89872595898 (83.7 GiB)
+  port 42: vm12-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1497926826 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1493689878 errors:? dropped:48020 aborted:? carrier:?
+    collisions:?
+    RX bytes:89875669493 (83.7 GiB)  TX bytes:89621452262 (83.5 GiB)
+  port 43: phy-br-14 (tap)
+    RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+    TX packets:0 errors:0 dropped:1339 aborted:0 carrier:0
+    collisions:0
+    RX bytes:0  TX bytes:0
+  port 44: vm12-vhost-user-1-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1492163517 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1500271414 errors:? dropped:30229 aborted:? carrier:?
+    collisions:?
+    RX bytes:89529872642 (83.4 GiB)  TX bytes:90016342333 (83.8 GiB)
+  port 45: vm13-vhost-user-0-n1 (dpdkvhostuserclient: configured_rx_queues=1, configured_tx_queues=1, mtu=1500, requested_rx_queues=1, requested_tx_queues=1)
+    RX packets:1500301643 errors:0 dropped:0 overruns:? frame:?
+    TX packets:1492101958 errors:? dropped:61559 aborted:? carrier:?
+    collisions:?
+    RX bytes:90018158232 (83.8 GiB)  TX bytes:89526175427 (83.4 GiB)
+
+
+=====================================================================
+ovs-appctl dpif-netdev/pmd-stats-show
+=====================================================================
+
+pmd thread numa_id 1 core_id 3:
+  packets received: 3738734
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738734
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 16.42
+  idle cycles: 10431209788 (80.17%)
+  processing cycles: 2580623768 (19.83%)
+  avg cycles per packet: 3480.28 (13011833556/3738734)
+  avg processing cycles per packet: 690.24 (2580623768/3738734)
+pmd thread numa_id 1 core_id 5:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 11.08
+  idle cycles: 10259307618 (78.85%)
+  processing cycles: 2752553494 (21.15%)
+  avg cycles per packet: 3480.18 (13011861112/3738843)
+  avg processing cycles per packet: 736.20 (2752553494/3738843)
+pmd thread numa_id 1 core_id 11:
+  packets received: 3738734
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738734
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 12.88
+  idle cycles: 9563050756 (73.49%)
+  processing cycles: 3448822658 (26.51%)
+  avg cycles per packet: 3480.29 (13011873414/3738734)
+  avg processing cycles per packet: 922.46 (3448822658/3738734)
+pmd thread numa_id 1 core_id 15:
+  packets received: 3738734
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738734
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 13.28
+  idle cycles: 9611506524 (73.87%)
+  processing cycles: 3400374012 (26.13%)
+  avg cycles per packet: 3480.29 (13011880536/3738734)
+  avg processing cycles per packet: 909.50 (3400374012/3738734)
+pmd thread numa_id 1 core_id 19:
+  packets received: 3738734
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738734
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 14.14
+  idle cycles: 9617573008 (73.91%)
+  processing cycles: 3394320372 (26.09%)
+  avg cycles per packet: 3480.29 (13011893380/3738734)
+  avg processing cycles per packet: 907.88 (3394320372/3738734)
+pmd thread numa_id 1 core_id 23:
+  packets received: 3738821
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738821
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 15.08
+  idle cycles: 9697774208 (74.53%)
+  processing cycles: 3314114580 (25.47%)
+  avg cycles per packet: 3480.21 (13011888788/3738821)
+  avg processing cycles per packet: 886.41 (3314114580/3738821)
+pmd thread numa_id 1 core_id 27:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 14.48
+  idle cycles: 9627232032 (73.99%)
+  processing cycles: 3384671278 (26.01%)
+  avg cycles per packet: 3480.20 (13011903310/3738843)
+  avg processing cycles per packet: 905.27 (3384671278/3738843)
+pmd thread numa_id 1 core_id 31:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 13.84
+  idle cycles: 9659464742 (74.24%)
+  processing cycles: 3352447104 (25.76%)
+  avg cycles per packet: 3480.20 (13011911846/3738843)
+  avg processing cycles per packet: 896.65 (3352447104/3738843)
+pmd thread numa_id 1 core_id 35:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 13.12
+  idle cycles: 9613627586 (73.88%)
+  processing cycles: 3398289516 (26.12%)
+  avg cycles per packet: 3480.20 (13011917102/3738843)
+  avg processing cycles per packet: 908.91 (3398289516/3738843)
+pmd thread numa_id 1 core_id 39:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 12.37
+  idle cycles: 9568150900 (73.53%)
+  processing cycles: 3443770696 (26.47%)
+  avg cycles per packet: 3480.20 (13011921596/3738843)
+  avg processing cycles per packet: 921.08 (3443770696/3738843)
+pmd thread numa_id 1 core_id 43:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 12.11
+  idle cycles: 9557557214 (73.45%)
+  processing cycles: 3454369836 (26.55%)
+  avg cycles per packet: 3480.20 (13011927050/3738843)
+  avg processing cycles per packet: 923.91 (3454369836/3738843)
+pmd thread numa_id 1 core_id 47:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 12.56
+  idle cycles: 9603463462 (73.81%)
+  processing cycles: 3408467360 (26.19%)
+  avg cycles per packet: 3480.20 (13011930822/3738843)
+  avg processing cycles per packet: 911.64 (3408467360/3738843)
+pmd thread numa_id 1 core_id 51:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 13.48
+  idle cycles: 9614945188 (73.89%)
+  processing cycles: 3396991060 (26.11%)
+  avg cycles per packet: 3480.20 (13011936248/3738843)
+  avg processing cycles per packet: 908.57 (3396991060/3738843)
+pmd thread numa_id 1 core_id 55:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 14.31
+  idle cycles: 9617316744 (73.91%)
+  processing cycles: 3394624900 (26.09%)
+  avg cycles per packet: 3480.21 (13011941644/3738843)
+  avg processing cycles per packet: 907.93 (3394624900/3738843)
+pmd thread numa_id 1 core_id 59:
+  packets received: 3738843
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3738843
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 13.23
+  idle cycles: 9613427896 (73.88%)
+  processing cycles: 3398522690 (26.12%)
+  avg cycles per packet: 3480.21 (13011950586/3738843)
+  avg processing cycles per packet: 908.98 (3398522690/3738843)
+pmd thread numa_id 1 core_id 67:
+  packets received: 3739844
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739844
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 6.89
+  idle cycles: 9855359346 (75.74%)
+  processing cycles: 3156596292 (24.26%)
+  avg cycles per packet: 3479.28 (13011955638/3739844)
+  avg processing cycles per packet: 844.04 (3156596292/3739844)
+pmd thread numa_id 1 core_id 69:
+  packets received: 3739743
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739743
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 15.32
+  idle cycles: 10344383016 (79.50%)
+  processing cycles: 2667577646 (20.50%)
+  avg cycles per packet: 3479.37 (13011960662/3739743)
+  avg processing cycles per packet: 713.31 (2667577646/3739743)
+pmd thread numa_id 1 core_id 75:
+  packets received: 3739844
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739844
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 8.07
+  idle cycles: 9123089706 (70.11%)
+  processing cycles: 3888876242 (29.89%)
+  avg cycles per packet: 3479.28 (13011965948/3739844)
+  avg processing cycles per packet: 1039.85 (3888876242/3739844)
+pmd thread numa_id 1 core_id 79:
+  packets received: 3739844
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739844
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 7.94
+  idle cycles: 9168217726 (70.46%)
+  processing cycles: 3843753994 (29.54%)
+  avg cycles per packet: 3479.28 (13011971720/3739844)
+  avg processing cycles per packet: 1027.78 (3843753994/3739844)
+pmd thread numa_id 1 core_id 83:
+  packets received: 3739830
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739830
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 8.78
+  idle cycles: 9196316918 (70.68%)
+  processing cycles: 3815646294 (29.32%)
+  avg cycles per packet: 3479.29 (13011963212/3739830)
+  avg processing cycles per packet: 1020.27 (3815646294/3739830)
+pmd thread numa_id 1 core_id 87:
+  packets received: 3739812
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739812
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 8.69
+  idle cycles: 9262002518 (71.18%)
+  processing cycles: 3749971848 (28.82%)
+  avg cycles per packet: 3479.31 (13011974366/3739812)
+  avg processing cycles per packet: 1002.72 (3749971848/3739812)
+pmd thread numa_id 1 core_id 91:
+  packets received: 3739793
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739793
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 9.57
+  idle cycles: 9322080414 (71.64%)
+  processing cycles: 3689899798 (28.36%)
+  avg cycles per packet: 3479.33 (13011980212/3739793)
+  avg processing cycles per packet: 986.66 (3689899798/3739793)
+pmd thread numa_id 1 core_id 95:
+  packets received: 3739776
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739776
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 9.91
+  idle cycles: 9363555600 (71.96%)
+  processing cycles: 3648428038 (28.04%)
+  avg cycles per packet: 3479.35 (13011983638/3739776)
+  avg processing cycles per packet: 975.57 (3648428038/3739776)
+pmd thread numa_id 1 core_id 99:
+  packets received: 3739776
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739776
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 9.99
+  idle cycles: 9386934918 (72.14%)
+  processing cycles: 3625062554 (27.86%)
+  avg cycles per packet: 3479.35 (13011997472/3739776)
+  avg processing cycles per packet: 969.33 (3625062554/3739776)
+pmd thread numa_id 1 core_id 103:
+  packets received: 3739776
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739776
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 9.83
+  idle cycles: 9322933652 (71.65%)
+  processing cycles: 3689069134 (28.35%)
+  avg cycles per packet: 3479.35 (13012002786/3739776)
+  avg processing cycles per packet: 986.44 (3689069134/3739776)
+pmd thread numa_id 1 core_id 107:
+  packets received: 3739776
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739776
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 10.22
+  idle cycles: 9390916790 (72.17%)
+  processing cycles: 3621091374 (27.83%)
+  avg cycles per packet: 3479.35 (13012008164/3739776)
+  avg processing cycles per packet: 968.26 (3621091374/3739776)
+pmd thread numa_id 1 core_id 111:
+  packets received: 3739776
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739776
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 11.35
+  idle cycles: 9464882412 (72.74%)
+  processing cycles: 3547130528 (27.26%)
+  avg cycles per packet: 3479.36 (13012012940/3739776)
+  avg processing cycles per packet: 948.49 (3547130528/3739776)
+pmd thread numa_id 1 core_id 115:
+  packets received: 3739776
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739776
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 12.50
+  idle cycles: 9501904406 (73.02%)
+  processing cycles: 3510112612 (26.98%)
+  avg cycles per packet: 3479.36 (13012017018/3739776)
+  avg processing cycles per packet: 938.59 (3510112612/3739776)
+pmd thread numa_id 1 core_id 119:
+  packets received: 3739750
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739750
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 12.81
+  idle cycles: 9511460396 (73.10%)
+  processing cycles: 3500538646 (26.90%)
+  avg cycles per packet: 3479.38 (13011999042/3739750)
+  avg processing cycles per packet: 936.04 (3500538646/3739750)
+pmd thread numa_id 1 core_id 123:
+  packets received: 3739743
+  packet recirculations: 0
+  avg. datapath passes per packet: 1.00
+  emc hits: 3739743
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 14.70
+  idle cycles: 9613272924 (73.88%)
+  processing cycles: 3398759346 (26.12%)
+  avg cycles per packet: 3479.39 (13012032270/3739743)
+  avg processing cycles per packet: 908.82 (3398759346/3739743)
+main thread:
+  packets received: 0
+  packet recirculations: 0
+  avg. datapath passes per packet: 0.00
+  emc hits: 0
+  smc hits: 0
+  megaflow hits: 0
+  avg. subtable lookups per megaflow hit: 0.00
+  miss with success upcall: 0
+  miss with failed upcall: 0
+  avg. packets per output batch: 0.00
+
+
+=====================================================================
+=====================================================================
+=====================================================================
+ovs-vsctl show
+=====================================================================
+
+8b99ae6d-d954-4387-87ba-0e0aca863409
+    Bridge phy-br-2
+        datapath_type: netdev
+        Port phy-br-2
+            Interface phy-br-2
+                type: internal
+        Port vm0-vhost-user-1-n1
+            Interface vm0-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm0-vhost-user-1-n1"}
+        Port vm1-vhost-user-0-n1
+            Interface vm1-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm1-vhost-user-0-n1"}
+    Bridge phy-br-1
+        datapath_type: netdev
+        Port dpdk-1
+            Interface dpdk-1
+                type: dpdk
+                options: {dpdk-devargs="0000:98:00.1", n_rxq="1", n_rxq_desc="2048", n_txq_desc="2048"}
+        Port vm13-vhost-user-1-n1
+            Interface vm13-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm13-vhost-user-1-n1"}
+        Port phy-br-1
+            Interface phy-br-1
+                type: internal
+    Bridge phy-br-9
+        datapath_type: netdev
+        Port phy-br-9
+            Interface phy-br-9
+                type: internal
+        Port vm8-vhost-user-0-n1
+            Interface vm8-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm8-vhost-user-0-n1"}
+        Port vm7-vhost-user-1-n1
+            Interface vm7-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm7-vhost-user-1-n1"}
+    Bridge phy-br-11
+        datapath_type: netdev
+        Port vm10-vhost-user-0-n1
+            Interface vm10-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm10-vhost-user-0-n1"}
+        Port phy-br-11
+            Interface phy-br-11
+                type: internal
+        Port vm9-vhost-user-1-n1
+            Interface vm9-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm9-vhost-user-1-n1"}
+    Bridge phy-br-0
+        datapath_type: netdev
+        Port phy-br-0
+            Interface phy-br-0
+                type: internal
+        Port vm0-vhost-user-0-n1
+            Interface vm0-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm0-vhost-user-0-n1"}
+        Port dpdk-0
+            Interface dpdk-0
+                type: dpdk
+                options: {dpdk-devargs="0000:98:00.0", n_rxq="1", n_rxq_desc="2048", n_txq_desc="2048"}
+    Bridge phy-br-3
+        datapath_type: netdev
+        Port vm1-vhost-user-1-n1
+            Interface vm1-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm1-vhost-user-1-n1"}
+        Port vm2-vhost-user-0-n1
+            Interface vm2-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm2-vhost-user-0-n1"}
+        Port phy-br-3
+            Interface phy-br-3
+                type: internal
+    Bridge phy-br-12
+        datapath_type: netdev
+        Port phy-br-12
+            Interface phy-br-12
+                type: internal
+        Port vm10-vhost-user-1-n1
+            Interface vm10-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm10-vhost-user-1-n1"}
+        Port vm11-vhost-user-0-n1
+            Interface vm11-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm11-vhost-user-0-n1"}
+    Bridge phy-br-13
+        datapath_type: netdev
+        Port vm12-vhost-user-0-n1
+            Interface vm12-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm12-vhost-user-0-n1"}
+        Port vm11-vhost-user-1-n1
+            Interface vm11-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm11-vhost-user-1-n1"}
+        Port phy-br-13
+            Interface phy-br-13
+                type: internal
+    Bridge phy-br-8
+        datapath_type: netdev
+        Port vm6-vhost-user-1-n1
+            Interface vm6-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm6-vhost-user-1-n1"}
+        Port phy-br-8
+            Interface phy-br-8
+                type: internal
+        Port vm7-vhost-user-0-n1
+            Interface vm7-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm7-vhost-user-0-n1"}
+    Bridge phy-br-7
+        datapath_type: netdev
+        Port vm5-vhost-user-1-n1
+            Interface vm5-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm5-vhost-user-1-n1"}
+        Port vm6-vhost-user-0-n1
+            Interface vm6-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm6-vhost-user-0-n1"}
+        Port phy-br-7
+            Interface phy-br-7
+                type: internal
+    Bridge phy-br-4
+        datapath_type: netdev
+        Port vm3-vhost-user-0-n1
+            Interface vm3-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm3-vhost-user-0-n1"}
+        Port vm2-vhost-user-1-n1
+            Interface vm2-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm2-vhost-user-1-n1"}
+        Port phy-br-4
+            Interface phy-br-4
+                type: internal
+    Bridge phy-br-6
+        datapath_type: netdev
+        Port vm5-vhost-user-0-n1
+            Interface vm5-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm5-vhost-user-0-n1"}
+        Port vm4-vhost-user-1-n1
+            Interface vm4-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm4-vhost-user-1-n1"}
+        Port phy-br-6
+            Interface phy-br-6
+                type: internal
+    Bridge phy-br-10
+        datapath_type: netdev
+        Port vm8-vhost-user-1-n1
+            Interface vm8-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm8-vhost-user-1-n1"}
+        Port phy-br-10
+            Interface phy-br-10
+                type: internal
+        Port vm9-vhost-user-0-n1
+            Interface vm9-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm9-vhost-user-0-n1"}
+    Bridge phy-br-5
+        datapath_type: netdev
+        Port vm3-vhost-user-1-n1
+            Interface vm3-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm3-vhost-user-1-n1"}
+        Port vm4-vhost-user-0-n1
+            Interface vm4-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm4-vhost-user-0-n1"}
+        Port phy-br-5
+            Interface phy-br-5
+                type: internal
+    Bridge phy-br-14
+        datapath_type: netdev
+        Port phy-br-14
+            Interface phy-br-14
+                type: internal
+        Port vm12-vhost-user-1-n1
+            Interface vm12-vhost-user-1-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm12-vhost-user-1-n1"}
+        Port vm13-vhost-user-0-n1
+            Interface vm13-vhost-user-0-n1
+                type: dpdkvhostuserclient
+                options: {vhost-server-path="/tmp/vm13-vhost-user-0-n1"}

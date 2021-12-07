@@ -1,0 +1,209 @@
+ovs-ofctl dump-ports phy-br-0
+dpdk-0: 
+ofport              : 1
+vm0-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1301137952, bytes=83272876992, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1292258051, bytes=77535531258, drop=0, errs=0, coll=?
+  port  2: rx pkts=1292258051, bytes=77535531258, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1301136385, bytes=78068231164, drop=1567, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-1
+dpdk-1: 
+ofport              : 1
+vm13-vhost-user-1-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1084, errs=0, coll=0
+  port  1: rx pkts=1301137952, bytes=83272876992, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1293500432, bytes=77610073558, drop=0, errs=0, coll=?
+  port  2: rx pkts=1293500432, bytes=77610073558, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1301126686, bytes=78067646946, drop=11266, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-2
+vm0-vhost-user-1-n1: 
+ofport              : 1
+vm1-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1299714873, bytes=77982940444, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1292258051, bytes=77535531258, drop=2400, errs=?, coll=?
+  port  2: rx pkts=1292260451, bytes=77535675258, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1299703134, bytes=77982236104, drop=11739, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-3
+vm1-vhost-user-1-n1: 
+ofport              : 1
+vm2-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1298254960, bytes=77895345664, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1292777817, bytes=77566717218, drop=3096, errs=?, coll=?
+  port  2: rx pkts=1292780913, bytes=77566902978, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1298250317, bytes=77895067084, drop=4643, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-4
+vm2-vhost-user-1-n1: 
+ofport              : 1
+vm3-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1296628372, bytes=77797750384, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1292780913, bytes=77566902978, drop=6537, errs=?, coll=?
+  port  2: rx pkts=1292787450, bytes=77567295198, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1296625595, bytes=77797583764, drop=2777, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-5
+vm3-vhost-user-1-n1: 
+ofport              : 1
+vm4-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1296422605, bytes=77785404364, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1293538623, bytes=77612365578, drop=3910, errs=?, coll=?
+  port  2: rx pkts=1293542533, bytes=77612600178, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1296414194, bytes=77784899704, drop=8411, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-6
+vm4-vhost-user-1-n1: 
+ofport              : 1
+vm5-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1295780423, bytes=77746873444, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1293542533, bytes=77612600178, drop=5043, errs=?, coll=?
+  port  2: rx pkts=1293547576, bytes=77612902758, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295779379, bytes=77746810804, drop=1044, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-7
+vm5-vhost-user-1-n1: 
+ofport              : 1
+vm6-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1295754895, bytes=77745341764, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1294185819, bytes=77651197338, drop=3106, errs=?, coll=?
+  port  2: rx pkts=1294188925, bytes=77651383698, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295749474, bytes=77745016504, drop=5421, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-8
+vm6-vhost-user-1-n1: 
+ofport              : 1
+vm7-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1295683656, bytes=77741067424, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1294188925, bytes=77651383698, drop=95, errs=?, coll=?
+  port  2: rx pkts=1294189020, bytes=77651389398, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295679202, bytes=77740800184, drop=4454, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-9
+vm7-vhost-user-1-n1: 
+ofport              : 1
+vm8-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1295675370, bytes=77740570264, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1294339886, bytes=77660441358, drop=2453, errs=?, coll=?
+  port  2: rx pkts=1294342339, bytes=77660588538, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295672099, bytes=77740374004, drop=3271, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-10
+vm8-vhost-user-1-n1: 
+ofport              : 1
+vm9-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1295410252, bytes=77724663184, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1294347964, bytes=77660926038, drop=5690, errs=?, coll=?
+  port  2: rx pkts=1294353654, bytes=77661267438, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295404670, bytes=77724328264, drop=5582, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-11
+vm9-vhost-user-1-n1: 
+ofport              : 1
+vm10-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1087, errs=0, coll=0
+  port  1: rx pkts=1295404670, bytes=77724328264, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295160879, bytes=77709700938, drop=3146, errs=?, coll=?
+  port  2: rx pkts=1295164025, bytes=77709889698, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295400703, bytes=77724090244, drop=3967, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-12
+vm10-vhost-user-1-n1: 
+ofport              : 1
+vm11-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1130, errs=0, coll=0
+  port  1: rx pkts=1295037020, bytes=77702273529, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295272632, bytes=77716403865, drop=425, errs=?, coll=?
+  port  2: rx pkts=1295273057, bytes=77716431618, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295033231, bytes=77702042555, drop=3789, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-13
+vm11-vhost-user-1-n1: 
+ofport              : 1
+vm12-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1103, errs=0, coll=0
+  port  1: rx pkts=1295033238, bytes=77702044402, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1298778442, bytes=77926752182, drop=20, errs=?, coll=?
+  port  2: rx pkts=1298778462, bytes=77926755637, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1295032389, bytes=77701990906, drop=849, errs=?, coll=?
+--
+ovs-ofctl dump-ports phy-br-14
+vm12-vhost-user-1-n1: 
+ofport              : 1
+vm13-vhost-user-0-n1: 
+ofport              : 2
+
+OFPST_PORT reply (xid=0x2): 3 ports
+  port LOCAL: rx pkts=0, bytes=0, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=0, bytes=0, drop=1099, errs=0, coll=0
+  port  1: rx pkts=1293506028, bytes=77610411286, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1301123050, bytes=78067428477, drop=16, errs=?, coll=?
+  port  2: rx pkts=1301123066, bytes=78067431596, drop=0, errs=0, frame=?, over=?, crc=?
+           tx pkts=1293500420, bytes=77610071131, drop=5608, errs=?, coll=?
